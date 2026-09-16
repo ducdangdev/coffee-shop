@@ -1,0 +1,8 @@
+node_modules/
+.qa-tools/
+qa/artifacts/
+**/.env
+**/.env.*
+!**/.env.example
+**/dist/
+*.log
