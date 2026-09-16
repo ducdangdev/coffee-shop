@@ -1,6 +1,8 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
+const ssl = process.env.DB_SSL === 'true' ? { minVersion: 'TLSv1.2' } : undefined;
+
 // Tạo connection pool - giúp quản lý nhiều kết nối MySQL hiệu quả
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
@@ -12,6 +14,7 @@ const pool = mysql.createPool({
   connectionLimit: 10,
   queueLimit: 0,
   dateStrings: true,
+  ssl,
 });
 
 // Hàm kiểm tra kết nối khi khởi động server

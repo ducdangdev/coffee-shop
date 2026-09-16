@@ -23,5 +23,7 @@ services:
         sync: false
       - key: DB_NAME
         sync: false
+      - key: DB_SSL
+        value: "true"
       - key: JWT_EXPIRES_IN
         value: 7d
